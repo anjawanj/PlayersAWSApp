@@ -1,0 +1,59 @@
+<div>
+  <div class="container">
+    <h1>Create New Player</h1>
+    <form [formGroup]="playerForm">
+      <div class="form-group row">
+        <label for="First Name" class="col-sm-2 col-form-label">First Name</label>
+        <input type="text" class="col-sm-10" id="firstName" required formControlName="firstName" name="firstName">
+      </div>
+
+      <div class="form-group row">
+        <label for="Last name" class="col-sm-2 col-form-label">Last Name</label>
+        <input type="text" class="col-sm-10" id="lastName" required formControlName="lastName" name="lastName">
+      </div>
+
+      <div class="form-group row">
+        <label for="country" class="col-sm-2 col-form-label">Country</label>
+        <input type="text" class="col-sm-10" id="country" required formControlName="country" name="country">
+      </div>
+
+
+      <div class="form-group row">
+        <label for="role" class="col-sm-2 col-form-label">Role</label>
+        <select class="col-sm-10" formControlName="role">
+          <option value="" selected hidden>Select Role</option>
+          <option *ngFor="let type of roles" [value]="type">{{type}}</option>
+        </select>
+      </div>
+
+      <div class="form-group row">
+        <label for="teams" class="col-sm-2 col-form-label">Teams</label>
+        <input type="text" class="col-sm-10" id="teams" required formControlName="teams" name="teams">
+      </div>
+
+      <div class="form-group row">
+        <label for="Birth Date" class="col-sm-2 col-form-label">Birth Date</label>
+        <my-date-picker [options]="myDatePickerOptions" formControlName="birthDate"
+        [placeholder]="placeholder"
+        class="col-sm-10">
+        </my-date-picker>
+
+      </div>
+
+      <div class="form-group row">
+        <label for="Status" class="col-sm-2 col-form-label">Status</label>
+        <select class="col-sm-10" formControlName="status">
+          <option value="" selected hidden>Select Status</option>
+          <option *ngFor="let type of statusType" [value]="type">{{type}}</option>
+        </select>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-success" [disabled]="playerForm.invalid" 
+        (click)="proceed()">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>

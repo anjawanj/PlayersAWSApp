@@ -6,3 +6,12 @@ management:
 
 server:
   port: 8080
+
+spring:
+  application:
+    name: players
+  datasource:
+    url: jdbc:mysql://localhost:3306/players?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: password
+
