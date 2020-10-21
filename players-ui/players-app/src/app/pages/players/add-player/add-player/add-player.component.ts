@@ -11,13 +11,12 @@ import { PlayersService } from 'src/app/services/players.service';
 })
 export class AddPlayerComponent implements OnInit {
 
-  private myDatePickerOptions: IMyDpOptions = {
+  myDatePickerOptions: IMyDpOptions = {
     dateFormat: 'yyyy-mm-dd'
   };
   playerForm : FormGroup; 
   roles: string[] = ['Batsman','Bowler','All-Rounder'];
-  statusType: string[] = ['Playing','Retired'];
-  placeHolder = 'Select date';
+  statusType: string[] = ['Playing','Retired'];  
   player: Player;
 
   public PlayerFormControls = [

@@ -1,0 +1,3 @@
+#Run as single app
+1. Run ng build --prod --aot=true in folder containing package.json
+2. Copy generated dist folder to scr/app/resources/static using resources plugin.
