@@ -1,4 +1,6 @@
 FROM openjdk:8-jdk-alpine as build
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
 WORKDIR /workspace/app
 
 COPY mvnw .
