@@ -1,6 +1,7 @@
 package com.anjawanj.players;
 
 import java.util.List;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,12 @@ public class PlayersController {
   @GetMapping(value = "/players")
   public ResponseEntity<List<Player>> test(){
     List<Player> players = playerService.getAllPlayers();
-    return ResponseEntity.status(HttpStatus.OK).body(players);
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Cache-Control", "max-age=36000,must-revalidate");
+    return ResponseEntity
+        .status(HttpStatus.OK)
+        .headers(headers)
+        .body(players);
   }
 
 
